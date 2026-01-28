@@ -5,6 +5,7 @@ import SignInPage from "./pages/auth/SignInPage";
 import OnboardingPersonalization from "./pages/onboarding/OnboardingPersonalization";
 import OnboardingSuccessPage from "./pages/onboarding/OnboardingSuccess";
 import Dashboard from "./pages/dashboard/Dashboard";
+import Analytics from "./pages/dashboard/Analytics";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
         <Route path="/onboarding" element={<OnboardingPersonalization/>} />
         <Route path="/success" element={<OnboardingSuccessPage />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/analytics" element={<Analytics />} />
       </Routes>
     </BrowserRouter>
   );

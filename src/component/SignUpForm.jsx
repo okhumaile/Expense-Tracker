@@ -29,125 +29,142 @@ function SignUpForm({ onNavigate }) {
   };
 
   return (
-    <div className="w-1/2 bg-white flex items-center justify-center">
-      <div className="w-full max-w-md px-12">
+    <div className="w-full bg-white flex items-center justify-center px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+      <div className="w-full max-w-md">
         {/* Back button */}
         <Link to="/">
-        <button 
-          onClick={() => onNavigate('/')}
-          className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors mb-8"
-        >
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <path d="M12 16L6 10L12 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
+          <button 
+            className="mb-6 sm:mb-10 p-2 hover:bg-gray-100 rounded-lg transition-colors"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
         </Link>
 
-        {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-3">
+       
+        <div className="mb-6 sm:mb-10">
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">
             Create your account
           </h1>
-          <p className="text-gray-500 text-sm">
+          <p className="text-gray-500 text-xs sm:text-sm">
             Create your account and begin tracking your expenses with ease and accuracy.
           </p>
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="space-y-5">
-          <div>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          {/* Full Name */}
+          <div className="w-full">
             <input
               type="text"
               name="fullName"
               value={formData.fullName}
               onChange={handleChange}
               placeholder="Enter Fullname"
-              className="w-full px-4 py-4 bg-gray-50 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all placeholder-gray-400 text-sm"
+              className="w-full px-4 sm:px-5 py-3 sm:py-4 bg-white border border-gray-200 rounded-2xl focus:outline-none focus:border-gray-300 transition-all placeholder-gray-400 text-sm"
               required
             />
           </div>
 
-          <div>
+          {/* Email */}
+          <div className="w-full">
             <input
               type="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
               placeholder="Enter Email address"
-              className="w-full px-4 py-4 bg-gray-50 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all placeholder-gray-400 text-sm"
+              className="w-full px-4 sm:px-5 py-3 sm:py-4 bg-white border border-gray-200 rounded-2xl focus:outline-none focus:border-gray-300 transition-all placeholder-gray-400 text-sm"
               required
             />
           </div>
 
-          <div className="relative">
+          {/* Password */}
+          <div className="relative w-full">
             <input
               type={showPassword ? "text" : "password"}
               name="password"
               value={formData.password}
               onChange={handleChange}
               placeholder="Create a Password"
-              className="w-full px-4 py-4 bg-gray-50 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all placeholder-gray-400 text-sm"
+              className="w-full px-4 sm:px-5 py-3 sm:py-4 bg-white border border-gray-200 rounded-2xl focus:outline-none focus:border-gray-300 transition-all placeholder-gray-400 text-sm pr-12"
               required
             />
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+              className="absolute right-4 sm:right-5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
             >
               {showPassword ? (
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M2 10C2 10 5 4 10 4C15 4 18 10 18 10C18 10 15 16 10 16C5 16 2 10 2 10Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <circle cx="10" cy="10" r="3" stroke="currentColor" strokeWidth="1.5"/>
+                  <path d="M2.5 10C2.5 10 5 5 10 5C15 5 17.5 10 17.5 10C17.5 10 15 15 10 15C5 15 2.5 10 2.5 10Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <circle cx="10" cy="10" r="2.5" stroke="currentColor" strokeWidth="1.5"/>
+                  <path d="M3 3L17 17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
                 </svg>
               ) : (
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M3 3L17 17M10 7C11.66 7 13 8.34 13 10C13 10.35 12.94 10.69 12.83 11M7 10C7 8.34 8.34 7 10 7M2 10C2 10 5 4 10 4C11.32 4 12.5 4.42 13.5 5M18 10C18 10 15 16 10 16C8.68 16 7.5 15.58 6.5 15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                  <path d="M2.5 10C2.5 10 5 5 10 5C15 5 17.5 10 17.5 10C17.5 10 15 15 10 15C5 15 2.5 10 2.5 10Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <circle cx="10" cy="10" r="2.5" stroke="currentColor" strokeWidth="1.5"/>
                 </svg>
               )}
             </button>
           </div>
 
-          <div className="relative">
+          {/* Confirm Password */}
+          <div className="relative w-full">
             <input
               type={showConfirmPassword ? "text" : "password"}
               name="confirmPassword"
               value={formData.confirmPassword}
               onChange={handleChange}
               placeholder="Re-enter Password"
-              className="w-full px-4 py-4 bg-gray-50 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all placeholder-gray-400 text-sm"
+              className="w-full px-4 sm:px-5 py-3 sm:py-4 bg-white border border-gray-200 rounded-2xl focus:outline-none focus:border-gray-300 transition-all placeholder-gray-400 text-sm pr-12"
               required
             />
             <button
               type="button"
               onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+              className="absolute right-4 sm:right-5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
             >
               {showConfirmPassword ? (
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M2 10C2 10 5 4 10 4C15 4 18 10 18 10C18 10 15 16 10 16C5 16 2 10 2 10Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <circle cx="10" cy="10" r="3" stroke="currentColor" strokeWidth="1.5"/>
+                  <path d="M2.5 10C2.5 10 5 5 10 5C15 5 17.5 10 17.5 10C17.5 10 15 15 10 15C5 15 2.5 10 2.5 10Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <circle cx="10" cy="10" r="2.5" stroke="currentColor" strokeWidth="1.5"/>
+                  <path d="M3 3L17 17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
                 </svg>
               ) : (
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M3 3L17 17M10 7C11.66 7 13 8.34 13 10C13 10.35 12.94 10.69 12.83 11M7 10C7 8.34 8.34 7 10 7M2 10C2 10 5 4 10 4C11.32 4 12.5 4.42 13.5 5M18 10C18 10 15 16 10 16C8.68 16 7.5 15.58 6.5 15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                  <path d="M2.5 10C2.5 10 5 5 10 5C15 5 17.5 10 17.5 10C17.5 10 15 15 10 15C5 15 2.5 10 2.5 10Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <circle cx="10" cy="10" r="2.5" stroke="currentColor" strokeWidth="1.5"/>
                 </svg>
               )}
             </button>
           </div>
-           <Link to="/onboarding">
-          <button
-            type="submit"
-            className="w-full bg-purple-100 hover:bg-purple-200 text-purple-800 font-medium py-4 rounded-full transition-colors duration-200 mt-8 text-sm"
-          >
-            Sign up
-          </button>
+          
+          {/* Submit Button */}
+          <Link to='/onboarding' className="block">
+            <button
+              type="submit"
+              className="w-full bg-gray-100 text-gray-400 font-medium py-3 sm:py-4 rounded-full mt-6 sm:mt-8 text-sm hover:bg-gray-200 transition-colors"
+            >
+              Sign up
+            </button>
           </Link>
         </form>
+
+   
+        <div className="mt-6 text-center">
+          <p className="text-sm text-gray-600">
+            Already have an account?{' '}
+            <Link to="/signin" className="text-purple-900 font-medium hover:underline">
+              Sign in
+            </Link>
+          </p>
+        </div>
       </div>
     </div>
   );
 }
 
-
-
-export default SignUpForm
+export default SignUpForm;

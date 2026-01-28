@@ -2,6 +2,8 @@ import React, {  useEffect } from 'react';
 import MoneyIllustration from '../component/MoneyIllustration';
 import BudgetIllustration from '../component/BudgetIllustration';
 import PiggyBankIllustration from '../component/PiggyBankIllustration';
+import BlobTopLeft from './BlobTopLeft';
+import BlobBottomRight from './BlobBottomRight';
 
 
 
@@ -33,12 +35,31 @@ function OnboardingSlider({ currentSlide, setCurrentSlide }) {
   }, [setCurrentSlide, slides.length]);
 
   return (
-    <div className="w-1/2 bg-gradient-to-br from-purple-50 via-white to-purple-50 relative overflow-hidden flex flex-col">
-      {/* Decorative circles */}
-      <div className="absolute top-0 left-0 w-80 h-80 bg-purple-100 rounded-full opacity-60 -translate-x-1/3 -translate-y-1/3"></div>
-      <div className="absolute top-20 right-0 w-64 h-64 bg-purple-100 rounded-full opacity-50 translate-x-1/4"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-100 rounded-full opacity-60 translate-x-1/4 translate-y-1/4"></div>
-      <div className="absolute bottom-40 left-0 w-72 h-72 bg-purple-100 rounded-full opacity-50 -translate-x-1/3"></div>
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-purple-50 relative overflow-hidden flex flex-col">
+      {/* Decorative blob */}
+    <BlobTopLeft 
+      className="absolute"
+        style={{
+          top: '-10px',
+          left: '-10px',
+          width: '400px',
+          height: 'auto',
+          zIndex: 0,
+          
+        }}
+    />
+
+    <BlobBottomRight 
+     className="absolute pointer-events-none"
+        style={{
+          bottom: '-100px',
+          right: '-100px',
+          width: '650px',
+          height: 'auto',
+          opacity: 1,
+          zIndex: 0
+        }}
+    />
 
       {/* Main content */}
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-12 py-12">

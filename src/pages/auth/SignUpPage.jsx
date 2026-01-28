@@ -7,9 +7,20 @@ function SignUpPage({ onNavigate }) {
 
   return (
     <div className="min-h-screen flex">
-      <OnboardingSlider currentSlide={currentSlide} setCurrentSlide={setCurrentSlide} />
-      <SignUpForm onNavigate={onNavigate} />
+
+      <div className="hidden md:block md:w-1/2 lg:w-1/2">
+        <OnboardingSlider 
+          currentSlide={currentSlide} 
+          setCurrentSlide={setCurrentSlide} 
+        />
+      </div>
+      
+
+      <div className="w-full md:w-1/2 lg:w-1/2">
+        <SignUpForm onNavigate={onNavigate} />
+      </div>
     </div>
   );
 }
-export default SignUpPage
+
+export default SignUpPage;
